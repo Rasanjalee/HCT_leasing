@@ -1,0 +1,31 @@
+li{
+  list-style: none;
+}
+
+.c-page-nav__item:hover .c-page-nav__sublist {
+  display: block;
+}
+
+.c-page-nav__sublist {
+  display: none;
+  background: #ffffff;
+  color: #2d2f32;
+  list-style: none;
+  padding: 10px;
+  width: 200px;
+  /*display: block;*/
+  position: absolute;
+}
+
+.c-page-sublist__item{
+  padding: 5px;
+}
+
+.c-page-sublist__item:hover {
+  color: #147AD6;
+  cursor: pointer;
+}
+
+.sublist li {
+  padding: 5px 0;
+}

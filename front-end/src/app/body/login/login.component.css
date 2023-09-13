@@ -1,0 +1,5 @@
+.m-form-field__input:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: none;
+}

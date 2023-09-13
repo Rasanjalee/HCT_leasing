@@ -1,0 +1,70 @@
+<div style="margin-top: 20px">
+  <div class="new-lease-payment-schedule__header" *ngIf="newLeasePaymentAmountsLoaded">
+    <div class="new-lease-payment-schedule__header-card">
+      <span>Total Lease Cost</span>
+      <h3>{{newLeasePaymentAmounts.totalLeaseCost | number}}</h3>
+    </div>
+    <div class="new-lease-payment-schedule__header-card">
+      <span>Total Interest</span>
+      <h3>{{newLeasePaymentAmounts.totalInterest | number}}</h3>
+    </div>
+    <div class="new-lease-payment-schedule__header-card">
+      <span>Monthly Installment</span>
+      <h3>{{newLeasePaymentAmounts.installment | number}}</h3>
+    </div>
+  </div>
+
+  <div class="leave-type__user--dto  div__wrapper_table" style="margin-top: 20px">
+
+    <table class="c-kriyo-deta__table tbl__uti_vs_emp">
+      <thead class="c-kriyo-deta__table--header">
+      <tr>
+        <th>Payment Date</th>
+        <th>Beginning Lease Cost</th>
+        <th>Beginning Principal</th>
+        <th>Installment</th>
+        <th>Principal</th>
+        <th>Interest</th>
+        <th>Ending Lease Balance</th>
+        <th>Ending Balance</th>
+      </tr>
+      </thead>
+
+      <tbody class="c-kriyo-deta__table--body tbody__leave_vs_emp c-pending__leave--body">
+      <tr>
+        <td>LS23213</td>
+        <td>UF-7129</td>
+        <td>Hewa Desea</td>
+        <td>0774415321</td>
+        <td>912321</td>
+        <td>21/04/2024</td>
+        <td>21/04/2024</td>
+        <td>21/04/2024</td>
+      </tr>
+      <tr>
+        <td>LS23213</td>
+        <td>UF-7129</td>
+        <td>Hewa Desea</td>
+        <td>0774415321</td>
+        <td>912321</td>
+        <td>21/04/2024</td>
+        <td>21/04/2024</td>
+        <td>21/04/2024</td>
+      </tr>
+      <tr>
+        <td>LS23213</td>
+        <td>UF-7129</td>
+        <td>Hewa Desea</td>
+        <td>0774415321</td>
+        <td>912321</td>
+        <td>21/04/2024</td>
+        <td>21/04/2024</td>
+        <td>21/04/2024</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+</div>

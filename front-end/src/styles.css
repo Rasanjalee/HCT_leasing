@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f2f4f4!important;
+  margin: 0 !important;
+}
+
+.m-form-field__input::placeholder {
+  font-family: 'Poppins', sans-serif;
+}
+
+.m-form-field__textarea::placeholder {
+  font-family: 'Poppins', sans-serif;
+}
+
+.m-form-field__input {
+  font-family: 'Poppins', sans-serif;
+}
+
+.m-form-field__textarea {
+  font-family: 'Poppins', sans-serif;
+}
+
+.m-form-field__select {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0!important;
+}
+
+.body__container {
+  margin: 0 85px !important;
+}
+
+.c-breadcrumbs__link {
+  color: #147ad6;
+}
+
+.m-form-field__label{
+  text-transform: unset;
+  flex: unset;
+}
+
+.m-form-field__textarea{
+  padding: 0 12px !important;
+}
+
+.lease-create-personal-page__wrapper{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-column-gap: 20px;
+}
+
+.lease-create-personal-page__body-form{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  margin-top: 20px;
+  grid-row-gap: 20px;
+}
+
+.m-form-field__lbl {
+  min-height: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.m-form-field__error {
+  font-size: 12px !important;
+}
+.m-form-field.has-error .m-form-field__field {
+  background-size: 1.8em !important;
+}
