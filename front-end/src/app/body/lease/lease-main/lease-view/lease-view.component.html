@@ -1,0 +1,428 @@
+<div class="body__container">
+  <div class="o-card c-breadcrumbs__card">
+    <h3 class="t1">Lease Details</h3>
+    <span class="c-breadcrumbs">
+      <span class="s-small-normal">
+          <span class="c-breadcrumbs__link" style="color: black">Lease</span>  <span class="c-breadcrumbs__divider">/</span>
+      </span>
+
+      <span class="c-breadcrumbs__link" (click)="backToLeaseMainPage()" style="cursor: pointer;color: black">
+            Lease Details
+      </span>
+      <span class="c-breadcrumbs__divider">/</span>
+      <span class="s-small-medium">
+            {{selectedLeaseDetails.leaseMaster.leaseID}}
+      </span>
+    </span>
+  </div>
+
+  <div class="lease-details__body">
+    <div class="lease-details__body-section">
+      <div style="display: flex; justify-content: space-between; align-items: center">
+        <h3>Personal Details</h3>
+        <i class="fa fa-pencil" aria-hidden="true" style="color: black; cursor: pointer"
+        (click)="editSectionEnabled('personalDetails')">
+        </i>
+      </div>
+      <div class="lease-details__body-section__grid">
+        <div class="lease-details__body-section__grid-block">
+          <h6>First Name</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseeMaster.firstName === '' ? '-' : selectedLeaseDetails.leaseeMaster.firstName }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Last Name</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseeMaster.lastName === '' ? '-' : selectedLeaseDetails.leaseeMaster.lastName }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Mobile Number</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseeMaster.mobileNumber === '' ? '-' : selectedLeaseDetails.leaseeMaster.mobileNumber }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit !== 'personalDetails'">
+          <h6>Land Number</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseeMaster.homeNumber === '' ? '-' : selectedLeaseDetails.leaseeMaster.homeNumber }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit === 'personalDetails'">
+          <div class="m-form-field">
+            <label class="m-form-field__label" style="font-size: 10px; font-weight: 600">Land Number</label>
+            <div class="m-form-field__field m-form-field__min-height">
+              <div class="m-form-field__field-item">
+                <input class="m-form-field__input" type="number" minlength="0" maxlength="524288"
+                       placeholder="Type Here" value="">
+              </div>
+            </div>
+            <div class="m-form-field__lbl">
+            </div>
+          </div>
+        </div>
+
+        <div class="lease-details__body-section__grid-block">
+          <h6>NIC</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseeMaster.nic === '' ? '-' : selectedLeaseDetails.leaseeMaster.nic }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit !== 'personalDetails'">
+          <h6>Email</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseeMaster.email === '' ? '-' : selectedLeaseDetails.leaseeMaster.email }}
+          </span>
+        </div>
+
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit === 'personalDetails'">
+          <div class="m-form-field">
+            <label class="m-form-field__label" style="font-size: 10px; font-weight: 600">Email</label>
+            <div class="m-form-field__field m-form-field__min-height">
+              <div class="m-form-field__field-item">
+                <input class="m-form-field__input" type="text" minlength="0" maxlength="524288"
+                       placeholder="Type Here" value="">
+              </div>
+            </div>
+            <div class="m-form-field__lbl">
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="lease-details__body-section__grid-block">
+        <h6>Address</h6>
+        <span class="lease-details__body-section__grid-block__span">
+          {{ selectedLeaseDetails.leaseeMaster.address === '' ? '-' : selectedLeaseDetails.leaseeMaster.address }}
+        </span>
+      </div>
+
+      <div class="lease-details__body-section__grid-block" style="display: flex; justify-content: end"
+           *ngIf="selectedSectionToEdit === 'personalDetails'">
+        <button class="a-btn a-btn--outline u-mr" (click)="editSectionEnabled('')" style="color: black;border-color: black">Cancel</button>
+        <button class="a-btn " style="color: wheat;background-color: black">Edit</button>
+      </div>
+    </div>
+
+    <div class="lease-details__body-section">
+      <h3>Vehicle Details</h3>
+      <div class="lease-details__body-section__grid">
+        <div class="lease-details__body-section__grid-block">
+          <h6>Vehicle Number</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.vehicle.vehicleNumber === '' ? '-' : selectedLeaseDetails.vehicle.vehicleNumber }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Make</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.vehicle.make === '' ? '-' : selectedLeaseDetails.vehicle.make }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Mode</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.vehicle.mode === '' ? '-' : selectedLeaseDetails.vehicle.mode }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Manufacture Year</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.vehicle.manuYear === '' ? '-' : selectedLeaseDetails.vehicle.manuYear }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Registered Year</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.vehicle.regYear === '' ? '-' : selectedLeaseDetails.vehicle.regYear }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Num Of Owners</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.vehicle.numOwners === '' ? '-' : selectedLeaseDetails.vehicle.numOwners }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Engine Number</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.vehicle.engineNumber === '' ? '-' : selectedLeaseDetails.vehicle.engineNumber }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Chassis Number</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.vehicle.chassisNumber === '' ? '-' : selectedLeaseDetails.vehicle.chassisNumber }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="lease-details__body-section">
+      <div style="display: flex; justify-content: space-between; align-items: center">
+        <h3>Guarantors Details</h3>
+        <i class="fa fa-pencil" aria-hidden="true" style="color: black; cursor: pointer"
+           (click)="editSectionEnabled('guarantorDetails')">
+        </i>
+      </div>
+
+      <h4 style="margin-top: 16px !important; font-size: 16px; font-weight: 500">Guarantor 01</h4>
+
+      <div class="lease-details__body-section__grid">
+        <div class="lease-details__body-section__grid-block">
+          <h6>Name</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseGurantors[0].gurantorName === '' ? '-' : selectedLeaseDetails.leaseGurantors[0].gurantorName }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit !== 'guarantorDetails'">
+          <h6>Mobile No</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseGurantors[0].telephoneNumber === '' ? '-' : selectedLeaseDetails.leaseGurantors[0].telephoneNumber }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit === 'guarantorDetails'">
+          <div class="m-form-field">
+            <label class="m-form-field__label" style="font-size: 10px; font-weight: 600">Mobile No</label>
+            <div class="m-form-field__field m-form-field__min-height">
+              <div class="m-form-field__field-item">
+                <input class="m-form-field__input" type="number" minlength="0" maxlength="524288"
+                       placeholder="Type Here" value="" [(ngModel)]="selectedLeaseDetails.leaseGurantors[0].telephoneNumber">
+              </div>
+            </div>
+            <div class="m-form-field__lbl">
+            </div>
+          </div>
+        </div>
+
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit !== 'guarantorDetails'">
+          <h6>Address</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseGurantors[0].address === '' ? '-' : selectedLeaseDetails.leaseGurantors[0].address }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit === 'guarantorDetails'">
+          <div class="m-form-field">
+            <label class="m-form-field__label" style="font-size: 10px; font-weight: 600">Address</label>
+            <div class="m-form-field__field m-form-field__min-height">
+              <div class="m-form-field__field-item">
+                <input class="m-form-field__input" type="text" minlength="0" maxlength="524288"
+                       placeholder="Type Here" value="" [(ngModel)]="selectedLeaseDetails.leaseGurantors[0].address">
+              </div>
+            </div>
+            <div class="m-form-field__lbl">
+            </div>
+          </div>
+        </div>
+
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit !== 'guarantorDetails'">
+          <h6>NIC/ Passport</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseGurantors[0].identityNumber === '' ? '-' : selectedLeaseDetails.leaseGurantors[0].identityNumber }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit === 'guarantorDetails'">
+          <div class="m-form-field">
+            <label class="m-form-field__label" style="font-size: 10px; font-weight: 600">NIC/ Passport</label>
+            <div class="m-form-field__field m-form-field__min-height">
+              <div class="m-form-field__field-item">
+                <input class="m-form-field__input" type="text" minlength="0" maxlength="524288"
+                       placeholder="Type Here" value="" [(ngModel)]="selectedLeaseDetails.leaseGurantors[0].identityNumber">
+              </div>
+            </div>
+            <div class="m-form-field__lbl">
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <h4 style="margin-top: 16px !important; font-size: 16px; font-weight: 500">Guarantor 02</h4>
+
+      <div class="lease-details__body-section__grid">
+        <div class="lease-details__body-section__grid-block">
+          <h6>Name</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseGurantors[1].gurantorName === '' ? '-' : selectedLeaseDetails.leaseGurantors[1].gurantorName }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit !== 'guarantorDetails'">
+          <h6>Mobile No</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseGurantors[1].telephoneNumber === '' ? '-' : selectedLeaseDetails.leaseGurantors[1].telephoneNumber }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit === 'guarantorDetails'">
+          <div class="m-form-field">
+            <label class="m-form-field__label" style="font-size: 10px; font-weight: 600">Mobile No</label>
+            <div class="m-form-field__field m-form-field__min-height">
+              <div class="m-form-field__field-item">
+                <input class="m-form-field__input" type="number" minlength="0" maxlength="524288"
+                       placeholder="Type Here" value="" [(ngModel)]="selectedLeaseDetails.leaseGurantors[1].telephoneNumber">
+              </div>
+            </div>
+            <div class="m-form-field__lbl">
+            </div>
+          </div>
+        </div>
+
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit !== 'guarantorDetails'">
+          <h6>Address</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseGurantors[1].address === '' ? '-' : selectedLeaseDetails.leaseGurantors[1].address }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit === 'guarantorDetails'">
+          <div class="m-form-field">
+            <label class="m-form-field__label" style="font-size: 10px; font-weight: 600">Address</label>
+            <div class="m-form-field__field m-form-field__min-height">
+              <div class="m-form-field__field-item">
+                <input class="m-form-field__input" type="text" minlength="0" maxlength="524288"
+                       placeholder="Type Here" value="" [(ngModel)]="selectedLeaseDetails.leaseGurantors[1].address">
+              </div>
+            </div>
+            <div class="m-form-field__lbl">
+            </div>
+          </div>
+        </div>
+
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit !== 'guarantorDetails'">
+          <h6>NIC/ Passport</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseGurantors[1].identityNumber === '' ? '-' : selectedLeaseDetails.leaseGurantors[1].identityNumber }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block" *ngIf="selectedSectionToEdit === 'guarantorDetails'">
+          <div class="m-form-field">
+            <label class="m-form-field__label" style="font-size: 10px; font-weight: 600">NIC/ Passport</label>
+            <div class="m-form-field__field m-form-field__min-height">
+              <div class="m-form-field__field-item">
+                <input class="m-form-field__input" type="text" minlength="0" maxlength="524288"
+                       placeholder="Type Here" value="" [(ngModel)]="selectedLeaseDetails.leaseGurantors[1].identityNumber">
+              </div>
+            </div>
+            <div class="m-form-field__lbl">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="lease-details__body-section__grid-block" style="display: flex; justify-content: end"
+           *ngIf="selectedSectionToEdit === 'guarantorDetails'">
+        <button class="a-btn a-btn--outline u-mr" (click)="editSectionEnabled('')"style="color: black;border-color: black">Cancel</button>
+        <button class="a-btn a-btn--primary" (click)="editLeaseGuarantorsDetails()" style="background-color: black;color: wheat">Edit</button>
+      </div>
+    </div>
+
+
+    <div class="lease-details__body-section">
+      <h3>Lease Details</h3>
+      <div class="lease-details__body-section__grid">
+        <div class="lease-details__body-section__grid-block">
+          <h6>Lease Amount</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseMaster.leaseAmount }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Monthly Interest Rate</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseMaster.annualInterestRate }}%
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Lease Duration</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseMaster.leaseDuration }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Start Date</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseMaster.leaseStartDate | date:'yyyy-MM-dd' }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Cash On Customer Hand</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseMaster.cashOnCustomerHand }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Document Charge</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseMaster.documentCharge }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Visit Charge</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseMaster.visitCharge }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Installment</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseMaster.installment }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Next Payment Date</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseMaster.nextPaymentDate | date:'yyyy-MM-dd' }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Current Outstanding Balance</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseMaster.currentOutStandingBalance }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Remaining Lease Amount</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseMaster.remainingLeaseAmount }}
+          </span>
+        </div>
+        <div class="lease-details__body-section__grid-block">
+          <h6>Remaining Capital</h6>
+          <span class="lease-details__body-section__grid-block__span">
+            {{ selectedLeaseDetails.leaseMaster.remainingCapial }}
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="lease-details__body-section" *ngIf="selectedLeaseDetails.leasePaymentHistories.length > 0">
+      <h3>Payment History</h3>
+      <div class="leave-type__user--dto  div__wrapper_table" style="margin-top: 20px;">
+
+        <table class="c-kriyo-deta__table tbl__uti_vs_emp">
+          <thead class="c-kriyo-deta__table--header">
+          <tr>
+            <th>Payment Effective Date</th>
+            <th>Amount</th>
+          </tr>
+          </thead>
+
+          <tbody class="c-kriyo-deta__table--body tbody__leave_vs_emp c-pending__leave--body">
+          <tr *ngFor="let lease of selectedLeaseDetails.leasePaymentHistories">
+            <td>{{lease.paymentdateTime | date: 'yyyy-MM-dd'}}</td>
+            <td>{{lease.paymentAmount | number}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+<app-error-modal></app-error-modal>

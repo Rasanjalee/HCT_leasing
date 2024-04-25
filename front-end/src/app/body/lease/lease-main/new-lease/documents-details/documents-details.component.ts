@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {LeaseDocuments} from "../../../../../classes/LeaseDetails";
 
 @Component({
   selector: 'app-documents-details',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentsDetailsComponent implements OnInit {
 
-  constructor() { }
+  @Output() leaseDocumentFormSubmit = new EventEmitter<LeaseDocuments[]>();
+  leaseDocuments: LeaseDocuments[];
+  constructor() {
+    const documents = new LeaseDocuments('', '');
+    this.leaseDocuments = [documents];
+  }
 
   ngOnInit(): void {
   }
 
+  setUploadedImageUrl(docUrl: string, docType: string) {
+    const document = new LeaseDocuments(docType, docUrl);
+    console.log(document)
+    this.leaseDocuments.push(document);
+  }
+
+  submitLeaseDocuments() {
+    this.leaseDocumentFormSubmit.emit(this.leaseDocuments);
+  }
 }

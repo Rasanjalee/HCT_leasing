@@ -1,0 +1,27 @@
+.lease-details__body{
+  margin-top: 40px;
+}
+
+.lease-details__body-section{
+  border: 1px dotted #e7e7e7;
+  border-radius: 7px;
+  margin-bottom: 16px;
+  padding: 10px;
+  background: #FFFFFF;
+}
+
+.lease-details__body-section__grid{
+  display: grid;
+  grid-column-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.lease-details__body-section__grid-block{
+  margin-bottom: 20px;
+}
+
+.lease-details__body-section__grid-block__span{
+  font-size: 14px;
+}

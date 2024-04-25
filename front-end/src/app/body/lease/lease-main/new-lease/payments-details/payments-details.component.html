@@ -1,5 +1,5 @@
-<div style="margin-top: 20px">
-  <div class="new-lease-payment-schedule__header" *ngIf="newLeasePaymentAmountsLoaded">
+<div style="margin-top: 20px" *ngIf="newLeasePaymentAmountsLoaded">
+  <div class="new-lease-payment-schedule__header">
     <div class="new-lease-payment-schedule__header-card">
       <span>Total Lease Cost</span>
       <h3>{{newLeasePaymentAmounts.totalLeaseCost | number}}</h3>
@@ -21,9 +21,9 @@
       <tr>
         <th>Payment Date</th>
         <th>Beginning Lease Cost</th>
-        <th>Beginning Principal</th>
+<!--        <th>Beginning Principal</th>-->
         <th>Installment</th>
-        <th>Principal</th>
+<!--        <th>Principal</th>-->
         <th>Interest</th>
         <th>Ending Lease Balance</th>
         <th>Ending Balance</th>
@@ -31,35 +31,13 @@
       </thead>
 
       <tbody class="c-kriyo-deta__table--body tbody__leave_vs_emp c-pending__leave--body">
-      <tr>
-        <td>LS23213</td>
-        <td>UF-7129</td>
-        <td>Hewa Desea</td>
-        <td>0774415321</td>
-        <td>912321</td>
-        <td>21/04/2024</td>
-        <td>21/04/2024</td>
-        <td>21/04/2024</td>
-      </tr>
-      <tr>
-        <td>LS23213</td>
-        <td>UF-7129</td>
-        <td>Hewa Desea</td>
-        <td>0774415321</td>
-        <td>912321</td>
-        <td>21/04/2024</td>
-        <td>21/04/2024</td>
-        <td>21/04/2024</td>
-      </tr>
-      <tr>
-        <td>LS23213</td>
-        <td>UF-7129</td>
-        <td>Hewa Desea</td>
-        <td>0774415321</td>
-        <td>912321</td>
-        <td>21/04/2024</td>
-        <td>21/04/2024</td>
-        <td>21/04/2024</td>
+      <tr *ngFor="let data of monthlyPaymentDetails">
+        <td>{{data.date}}</td>
+        <td>{{data.beginLeaseCost | number:'1.2-2'}}</td>
+        <td>{{data.monthInstallment | number:'1.2-2'}}</td>
+        <td>{{data.monthlyInterest | number:'1.2-2'}}</td>
+        <td>{{data.endingLeaseBalance | number:'1.2-2'}}</td>
+        <td>{{data.leaseClosedBalance | number:'1.2-2'}}</td>
       </tr>
 
       </tbody>

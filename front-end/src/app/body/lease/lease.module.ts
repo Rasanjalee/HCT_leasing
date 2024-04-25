@@ -15,7 +15,10 @@ import { GuarantorsDetailsComponent } from './lease-main/new-lease/guarantors-de
 import { LeaseDetailsComponent } from './lease-main/new-lease/lease-details/lease-details.component';
 import { PaymentsDetailsComponent } from './lease-main/new-lease/payments-details/payments-details.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {AngularFileUploaderModule} from "angular-file-uploader";
+import {CommonComponentsModule} from "../components/common/common.module";
+import { LeaseViewComponent } from './lease-main/lease-view/lease-view.component';
+import {AccordionModule} from "ngx-bootstrap/accordion";
+import { LeaseDetailsPipe } from './models/lease-details.pipe';
 
 
 @NgModule({
@@ -28,17 +31,20 @@ import {AngularFileUploaderModule} from "angular-file-uploader";
     DocumentsDetailsComponent,
     GuarantorsDetailsComponent,
     LeaseDetailsComponent,
-    PaymentsDetailsComponent
+    PaymentsDetailsComponent,
+    LeaseViewComponent,
+    LeaseDetailsPipe
   ],
-  imports: [
-    CommonModule,
-    LeaseRoutingModule,
-    CdkStepperModule,
-    NgStepperModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    AngularFileUploaderModule,
-  ]
+    imports: [
+        CommonModule,
+        LeaseRoutingModule,
+        CdkStepperModule,
+        NgStepperModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        CommonComponentsModule,
+        AccordionModule,
+    ]
 })
 export class LeaseModule { }

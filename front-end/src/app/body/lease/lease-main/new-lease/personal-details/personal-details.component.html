@@ -1,31 +1,3 @@
-<!--<div class="container">-->
-<!--  <form [formGroup]="stepOneForm"-->
-<!--        autocomplete="off"-->
-<!--        novalidate-->
-<!--        #formRef="ngForm">-->
-
-<!--    <div class="input">-->
-<!--      <label for="fname">First name <span>*</span></label>-->
-<!--      <input type="text" id="fname" placeholder="Enter First Name" formControlName="firstName"/>-->
-<!--      <span class="error" *ngIf="stepOneForm.controls['firstName'].hasError('required') && formRef.submitted">First Name is a required field-->
-<!--      </span>-->
-<!--    </div>-->
-
-<!--    <div class="input">-->
-<!--      <label for="lname">Last name <span>*</span></label>-->
-<!--      <input type="text" id="lname" placeholder="Enter Last Name" formControlName="lastName"/>-->
-<!--      <span class="error" *ngIf="stepOneForm.controls['lastName'].hasError('required') && formRef.submitted">Last Name is a required field-->
-<!--      </span>-->
-<!--    </div>-->
-
-<!--    <div class="button">-->
-<!--      <button class="button" cdkStepperNext>Next</button>-->
-<!--    </div>-->
-
-<!--  </form>-->
-<!--</div>-->
-
-
 <div style="margin-top: 10px !important;">
   <div>
     <form [formGroup]="stepOneForm"
@@ -40,7 +12,7 @@
           <div class="m-form-field__field">
             <div class="m-form-field__field-item">
               <input class="m-form-field__input" type="text" minlength="0" maxlength="524288"
-                     placeholder="First Name" value="" formControlName="firstName">
+                     placeholder="First Name" value=""  formControlName="firstName">
             </div>
           </div>
           <div class="m-form-field__lbl">
@@ -97,7 +69,7 @@
           </div>
         </div>
 
-        <div class="m-form-field">
+        <div class="m-form-field" style="visibility: hidden">
           <label class="m-form-field__label">NIC/ Passport<span class="required">*</span></label>
           <div class="m-form-field__field">
             <div class="m-form-field__field-item">
@@ -152,15 +124,7 @@
       </div>
 
       <div style="display: flex; justify-content: center;align-items: center">
-<!--        <angular-file-uploader-->
-<!--          [config]="afuConfig"-->
-<!--          (ApiResponse)="docUpload($event)">-->
-<!--        </angular-file-uploader>-->
-
-        <angular-file-uploader class="angular-file-uploader" [config]="afuConfig">
-        </angular-file-uploader>
-
-
+        <app-image-upload (uploadedImageUrl)="setUploadedImageUrl($event)"></app-image-upload>
       </div>
       <button class="a-btn a-btn--primary" cdkStepperNext style="margin-top: 20px" (click)="submitNewLeasePersonalDetails()">Submit & Next</button>
 

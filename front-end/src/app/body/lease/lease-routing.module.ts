@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LeaseComponent } from './lease.component';
 import { NewLeaseComponent } from './lease-main/new-lease/new-lease.component';
 import {LeaseMainComponent} from "./lease-main/lease-main.component";
+import {LeaseViewComponent} from "./lease-main/lease-view/lease-view.component";
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'main', pathMatch: 'full' },
       { path: 'main', component: LeaseMainComponent },
-      { path: 'create', component: NewLeaseComponent }
+      { path: 'create', component: NewLeaseComponent },
+      { path: 'details', component: LeaseViewComponent },
     ]
   }
 ];

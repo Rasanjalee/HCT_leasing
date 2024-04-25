@@ -1,5 +1,5 @@
 <div style="margin-top: 10px !important;">
-  <div>
+  <div *ngIf="leaseAppSettingsDataLoaded">
     <form [formGroup]="stepFiveForm"
           autocomplete="off"
           novalidate
@@ -12,7 +12,7 @@
           <div class="m-form-field__field">
             <div class="m-form-field__field-item">
               <input class="m-form-field__input" type="number" minlength="0" maxlength="524288"
-                     placeholder="Type Here" value="" formControlName="valuation">
+                     placeholder="Type Here" value="" formControlName="valuation" (change)="setDocumentChargeWithValuation()">
             </div>
           </div>
           <div class="m-form-field__lbl">
@@ -25,7 +25,7 @@
           <label class="m-form-field__label">Leasing Type<span class="required">*</span></label>
           <div class="m-form-field__field">
             <div class="m-form-field__field-item">
-              <select class="m-form-field__select" aria-label="Select title" formControlName="leaseType">
+              <select class="m-form-field__select" aria-label="Select title" formControlName="leaseType" (change)="setInterestChange()">
                 <option value="1">Standard EQUAL Installment</option>
                 <option value="2">Linear EQUAL Installment</option>
                 <option value="3">Reducing Balance</option>

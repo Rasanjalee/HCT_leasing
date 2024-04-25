@@ -126,6 +126,7 @@
       </div>
 
       <div style="display: flex; justify-content: center;align-items: center">
+        <app-image-upload (uploadedImageUrl)="setUploadedImageUrl($event)"></app-image-upload>
       </div>
       <button class="a-btn a-btn--primary" cdkStepperNext style="margin-top: 20px" (click)="submitNewLeaseVehicleDetails()">Submit & Next</button>
 

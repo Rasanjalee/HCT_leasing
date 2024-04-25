@@ -3,15 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
+import {FormsModule} from "@angular/forms";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     CommonModule,
-    LoginRoutingModule
+    BrowserAnimationsModule,
+    FormsModule,
+    LoginRoutingModule,
   ]
 })
 export class LoginModule { }

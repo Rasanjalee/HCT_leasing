@@ -1,60 +1,46 @@
 <div style="height: 66px; top: 0; background: #2d2f32!important; color: #FFFFFF; margin: 0 !important;">
   <div class="menu" style="display: flex; justify-content: flex-end; margin: 0 40px 0 0">
-    <img src="assets/images/logo.png" style="width: 180px; height: 66px; display: none"/>
+    <img src="assets/images/logo.png" style="width: 180px; height: 66px; display: none" alt="img"/>
     <div>
       <div class="profile-page__nav">
         <div class="c-page-nav" style="background: none; border-bottom: none; color: #FFFFFF">
           <nav class="c-page-nav__wrapper">
-            <li class="c-page-nav__item "  data-toggle="tab"><span>File</span></li>
-            <li class="c-page-nav__item is-active"  data-toggle="tab" (click)="createNewLease()"><span>Lease</span>
-              <ul class="c-page-nav__sublist">
-                <li class="c-page-sublist__item" (click)="createNewLease()">New Lease</li>
-                <li class="c-page-sublist__item">Search Lease</li>
-                <li class="c-page-sublist__item">Pay Installment</li>
-                <li class="c-page-sublist__item">Close Lease</li>
+<!--            <li class="c-page-nav__item "  [class.is-active]="activeTab === 'File'" data-toggle="tab" >-->
+<!--              <span>File</span>-->
+<!--            </li>-->
+            <li class="c-page-nav__item " [class.is-active]="activeTab === 'Lease'" data-toggle="tab"  (click)="createNewLease()">
+              <span >Lease</span>
+            </li>
+            <li class="c-page-nav__item "  [class.is-active]="activeTab === 'Administration'" data-toggle="tab" (click)="navigateToSettings()">
+              <span>Administration</span>
+            </li>
+            <li class="c-page-nav__item "  [class.is-active]="activeTab === 'Reports'"  data-toggle="tab" (click)="navigateToReports()">
+              <span>Reports</span>
+            </li>
+<!--            <li class="c-page-nav__item "  [class.is-active]="activeTab === 'Settings'" data-toggle="tab" >-->
+<!--              <span>Settings</span>-->
+<!--            </li>-->
+<!--            <li class="c-page-nav__item "  [class.is-active]="activeTab === 'Help'" data-toggle="tab">-->
+<!--              <span>Help</span>-->
+<!--            </li>-->
+            <li class="c-page-nav__item "  [class.is-active]="activeTab === 'Profile'" data-toggle="tab" >
+              <div style="display: flex; justify-content: center; align-items: center">
+                <img src="assets/images/profile_pic.png" style="width: 30px; height: 30px" alt="img"/>
+                <span>{{loggedEmployeeName}}</span>
+              </div>
+              <ul class="c-page-nav__sublist-profile " style="width: 200px">
+                <li class="c-page-sublist__item">
+                  <div style="display: flex; justify-content: flex-end; align-items: center">
+                    <img src="assets/images/profile_pic.png" style="width: 30px; height: 30px" alt="img"/>
+                    <span>{{loggedEmployeeName}}</span>
+                  </div>
+                </li>
+                <li class="c-page-sublist__item" (click)="signOut()">Sign Out</li>
               </ul>
             </li>
-            <li class="c-page-nav__item "  data-toggle="tab"><span>Administration</span>
-              <ul class="c-page-nav__sublist">
-                <li class="c-page-sublist__item">User</li>
-                <li class="c-page-sublist__item">Payroll</li>
-                <li class="c-page-sublist__item">Configurations</li>
-              </ul>
-            </li>
-            <li class="c-page-nav__item "  data-toggle="tab"><span>Reports</span>
-              <ul class="c-page-nav__sublist">
-                <li class="c-page-sublist__item">Income </li>
-                <li class="c-page-sublist__item">Outdated Payments</li>
-                <li class="c-page-sublist__item">Payslip</li>
-              </ul>
-            </li>
-            <li class="c-page-nav__item "  data-toggle="tab"><span>Settings</span></li>
-            <li class="c-page-nav__item "  data-toggle="tab"><span>Help</span></li>
-            <li class="c-page-nav__item "  data-toggle="tab"><span>Action</span></li>
           </nav>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-<!--<div class="menu-container">-->
-<!--  &lt;!&ndash; <a href="#" class="logo">Logo</a> &ndash;&gt;-->
-<!--  <div id="block_top_menu" class="menu l-wrapper">-->
-<!--    <ul id="menu-main-menu" class="clearfix menu-flex">-->
-<!--      <li id="menu-item-3100">File</li>-->
-<!--      <li id="menu-item-3106"-->
-<!--          class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3106">-->
-<!--        <a href="#">Lease</a>-->
-<!--        <ul class="" style="display: block">-->
-<!--          <li id="menu-item-336" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-336"><a>New Lease</a></li>-->
-<!--          <li id="menu-item-348" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-348"><a>Search Lease</a></li>-->
-<!--          <li id="menu-item-2994" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2994"><a>Pay Installation</a></li>-->
-<!--          <li id="menu-item-152" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-152"><a>Close Lease</a></li>-->
-<!--          <li id="menu-item-1962" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1962"><a>Leases</a></li>-->
-<!--        </ul>-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </div>-->
-<!--</div>-->

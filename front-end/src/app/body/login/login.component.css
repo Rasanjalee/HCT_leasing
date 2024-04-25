@@ -3,3 +3,23 @@
   border-color: transparent;
   box-shadow: none;
 }
+
+.login-page__wrapper{
+  /*background: #e5def9;*/
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background-image: url('src/assets/images/img.png');*/
+
+  width: 100%;
+  /*min-height: 665px;*/
+  background: url('src/assets/images/bg.jpg') no-repeat center center fixed !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+
+}
+
+.login-page{
+  background-image: url('src/assets/images/img.png');
+}
